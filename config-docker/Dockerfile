@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 
 WORKDIR /source
 
-COPY Configuration.csproj .
+COPY *.csproj .
 RUN dotnet restore
 COPY . .
 
@@ -17,4 +17,4 @@ COPY --from=build /app .
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
-ENTRYPOINT ["dotnet", "Configuration.dll"]
+ENTRYPOINT ["dotnet", "config-docker.dll"]

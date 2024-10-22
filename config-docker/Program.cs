@@ -2,6 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+
+Console.WriteLine(string.Join(", ", args));
+
 var appConfig = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", false)
     .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}.json", true)
@@ -9,7 +12,6 @@ var appConfig = new ConfigurationBuilder()
     .AddUserSecrets<Program>()
     .AddCommandLine(args)
     .Build();
-
 
     var host = Host.CreateDefaultBuilder()
         .ConfigureAppConfiguration((context, config) =>
@@ -19,7 +21,8 @@ var appConfig = new ConfigurationBuilder()
         })
         .ConfigureServices((context, services) =>
         {
-            services.AddHostedService<HostedService>();        })
+            services.AddHostedService<HostedService>();        
+        })
         .Build();
     
     await host.RunAsync();
