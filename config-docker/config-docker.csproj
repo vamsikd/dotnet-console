@@ -5,6 +5,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>1.0.0</Version> <!-- This is the package version (NuGet or DLL version) -->
+    <AssemblyVersion>1.0.0</AssemblyVersion> <!-- This is the assembly version -->
+    <FileVersion>1.0.0.0</FileVersion> <!-- This is the file version of the DLL -->
+    <InformationalVersion>1.0.0-beta</InformationalVersion> <!-- Optional: Additional version metadata -->
   </PropertyGroup>
 
   <ItemGroup>
